@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Jordan Jorge Payta Sarabia - Full-Stack Developer especializado en desarrollo web, IA y automatización">
+    <title>Jordan Payta - Full-Stack Developer</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- EmailJS para envío de correos - DEBE CARGAR PRIMERO -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "TJrgbRaVlBPiQTs1m",
+        });
+    })();
+    </script>
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header con navegación -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <!-- Logo -->
+            <div class="nav__logo">
+                <span class="logo-text">Jordan<span class="logo-accent">Payta</span></span>
+            </div>
+
+            <!-- Menú de navegación -->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Inicio</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">Sobre Mí</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#experience" class="nav__link">Experiencia</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#skills" class="nav__link">Habilidades</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#portfolio" class="nav__link">Proyectos</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Contacto</a>
+                    </li>
+                </ul>
+                <div class="nav__close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <!-- Toggle para móvil -->
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <!-- Botón de traducción -->
+            <div class="nav__translate" id="nav-translate">
+                <button class="translate__button" id="translate-btn" title="Cambiar idioma">
+                    <i class="fas fa-globe"></i>
+                    <span class="translate__text">EN</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Hero / Presentación Principal -->
+    <section class="home section" id="home">
+        <div class="home__container container">
+            <div class="home__content">
+                <div class="home__data">
+                    <span class="home__greeting">Hola, soy</span>
+                    <h1 class="home__name">Jordan Jorge Payta Sarabia</h1>
+                    <h3 class="home__profession">Full-Stack Developer & Computer Engineer</h3>
+                    <p class="home__description">
+                        Especializado en desarrollo web, inteligencia artificial y automatización de procesos. 
+                        Apasionado por crear soluciones innovadoras y eficientes.
+                    </p>
+                    <div class="home__buttons">
+                        <a href="#contact" class="button button-primary">
+                            <i class="fas fa-paper-plane"></i> Contáctame
+                        </a>
+                        <a href="#portfolio" class="button button-secondary">
+                            <i class="fas fa-briefcase"></i> Ver Proyectos
+                        </a>
+                    </div>
+                </div>
+                <div class="home__image">
+                    <div class="home__blob">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#3b82f6" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C87,14.6,81.4,29.2,73.1,42.8C64.8,56.4,53.8,69,40.1,76.8C26.4,84.6,10,87.6,-5.8,87.1C-21.6,86.6,-36.8,82.6,-50.3,74.9C-63.8,67.2,-75.6,55.8,-82.8,42.1C-90,28.4,-92.6,12.4,-91.1,-3.2C-89.6,-18.8,-84,-34,-74.9,-46.8C-65.8,-59.6,-53.2,-70,-39.1,-76.9C-25,-83.8,-9.4,-87.2,4.7,-85.9C18.8,-84.6,30.6,-83.6,44.7,-76.4Z" transform="translate(100 100)" />
+                        </svg>
+                        <img src="assets/profile_pic.jpg" alt="Jordan Payta" class="home__img">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll down indicator -->
+            <div class="home__scroll">
+                <a href="#about" class="home__scroll-button">
+                    <i class="fas fa-mouse"></i>
+                    <span class="home__scroll-name">Scroll Down</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section class="about section" id="about">
+        <div class="container">
+            <h2 class="section__title">Sobre Mí</h2>
+            <span class="section__subtitle">Mi introducción</span>
+
+            <div class="about__container">
+                <div class="about__data">
+                    <p class="about__description">
+                        Soy un graduado en Ingeniería en Computación con sólida formación en desarrollo de software, 
+                        sistemas digitales y lógica computacional. Mi formación académica me ha brindado fuertes 
+                        habilidades analíticas y de programación, junto con experiencia en áreas como sistemas embebidos, 
+                        redes de conocimiento y automatización de procesos.
+                    </p>
+                    <p class="about__description">
+                        Apasionado por la aplicación de tecnologías inteligentes y el desarrollo de soluciones seguras 
+                        y eficientes. Mi objetivo es contribuir a proyectos innovadores mientras continúo creciendo en 
+                        campos como la inteligencia artificial, el diseño de sistemas y la automatización.
+                    </p>
+                    <p class="about__description">
+                        Tengo experiencia proficiente en múltiples lenguajes de programación incluyendo C/C++, Python 
+                        y Java, así como experiencia práctica con microcontroladores, sistemas operativos y protocolos 
+                        de redes.
+                    </p>
+
+                    <div class="about__info">
+                        <div class="about__box">
+                            <i class="fas fa-award about__icon"></i>
+                            <h3 class="about__title">Experiencia</h3>
+                            <span class="about__subtitle">3+ Años</span>
+                        </div>
+                        <div class="about__box">
+                            <i class="fas fa-briefcase about__icon"></i>
+                            <h3 class="about__title">Proyectos</h3>
+                            <span class="about__subtitle">15+ Completados</span>
+                        </div>
+                        <div class="about__box">
+                            <i class="fas fa-certificate about__icon"></i>
+                            <h3 class="about__title">Certificaciones</h3>
+                            <span class="about__subtitle">4+ Obtenidas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Experiencia Profesional -->
+    <section class="experience section" id="experience">
+        <div class="container">
+            <h2 class="section__title">Experiencia Profesional</h2>
+            <span class="section__subtitle">Mi trayectoria laboral</span>
+
+            <div class="experience__container">
+                <!-- Experiencia 1 -->
+                <div class="experience__card">
+                    <div class="experience__header">
+                        <div class="experience__icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div>
+                            <h3 class="experience__title">Front End Developer</h3>
+                            <span class="experience__company">LC Software</span>
+                            <span class="experience__date">Marzo 2025 - Agosto 2025</span>
+                        </div>
+                    </div>
+                    <ul class="experience__list">
+                        <li>Desarrollé y mantuve interfaces de usuario responsivas usando HTML5, CSS3, JavaScript y PHP</li>
+                        <li>Migré el framework de UI de W3.CSS a Bootstrap, mejorando consistencia y responsividad</li>
+                        <li>Implementé componentes JavaScript reutilizables y renderizado dinámico de contenido</li>
+                        <li>Colaboré con el equipo backend para integrar APIs y optimizar el flujo de datos</li>
+                    </ul>
+                </div>
+
+                <!-- Experiencia 2 -->
+                <div class="experience__card">
+                    <div class="experience__header">
+                        <div class="experience__icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <h3 class="experience__title">Process Automation Project with AI</h3>
+                            <span class="experience__company">INB Computers</span>
+                            <span class="experience__date">Agosto 2024 - Febrero 2025</span>
+                        </div>
+                    </div>
+                    <ul class="experience__list">
+                        <li>Implementé soluciones de IA para automatizar procesos internos y optimizar tareas rutinarias</li>
+                        <li>Utilicé Python y librerías especializadas para procesamiento de datos</li>
+                        <li>Diseñé modelos predictivos y soluciones de IA basadas en análisis de datos</li>
+                        <li>Creé sistemas de respuesta generativa (RAG) usando AnythingLLM y Ollama</li>
+                    </ul>
+                </div>
+
+                <!-- Experiencia 3 -->
+                <div class="experience__card">
+                    <div class="experience__header">
+                        <div class="experience__icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div>
+                            <h3 class="experience__title">Technology Support - School Trajectory Monitoring</h3>
+                            <span class="experience__company">Faculty of Engineering (FIM)</span>
+                            <span class="experience__date">Agosto 2024 - Diciembre 2024</span>
+                        </div>
+                    </div>
+                    <ul class="experience__list">
+                        <li>Realicé análisis de datos académicos y estructuré grandes volúmenes de información</li>
+                        <li>Desarrollé herramientas para facilitar búsqueda y consulta de información académica usando Flask</li>
+                        <li>Automaticé procesos administrativos para mejorar eficiencia en seguimiento de planes de estudio</li>
+                        <li>Documenté procesos implementados y brindé soporte técnico al personal administrativo</li>
+                    </ul>
+                </div>
+
+                <!-- Experiencia 4 -->
+                <div class="experience__card">
+                    <div class="experience__header">
+                        <div class="experience__icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <h3 class="experience__title">Full-Stack Developer</h3>
+                            <span class="experience__company">Aliquam, Mexicali</span>
+                            <span class="experience__date">Junio 2023 - Septiembre 2023</span>
+                        </div>
+                    </div>
+                    <ul class="experience__list">
+                        <li>Desarrollé y mantuve aplicaciones web usando HTML, JavaScript y Python para funcionalidades backend</li>
+                        <li>Gestioné bases de datos y automatización de procesos para mejorar eficiencia operacional</li>
+                        <li>Colaboré en el diseño de interfaces responsivas y optimizadas</li>
+                        <li>Analicé datos almacenados en bases de datos para identificar patrones y tendencias</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Habilidades -->
+    <section class="skills section" id="skills">
+        <div class="container">
+            <h2 class="section__title">Habilidades</h2>
+            <span class="section__subtitle">Mi stack tecnológico</span>
+
+            <div class="skills__container">
+                <!-- Lenguajes de Programación -->
+                <div class="skills__content">
+                    <h3 class="skills__title">
+                        <i class="fas fa-code"></i>
+                        Lenguajes de Programación
+                    </h3>
+                    <div class="skills__box">
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <i class="fab fa-python"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fab fa-java"></i>
+                                <span>Java</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fab fa-js"></i>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fab fa-html5"></i>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fab fa-css3-alt"></i>
+                                <span>CSS3</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fas fa-code"></i>
+                                <span>C/C++</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fab fa-php"></i>
+                                <span>PHP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks & Tools -->
+                <div class="skills__content">
+                    <h3 class="skills__title">
+                        <i class="fas fa-tools"></i>
+                        Frameworks & Herramientas
+                    </h3>
+                    <div class="skills__box">
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <i class="fab fa-react"></i>
+                                <span>React Native</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fab fa-node-js"></i>
+                                <span>Node.js</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fas fa-flask"></i>
+                                <span>Flask</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fab fa-bootstrap"></i>
+                                <span>Bootstrap</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fas fa-code-branch"></i>
+                                <span>TypeScript</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fas fa-file-code"></i>
+                                <span>LaTeX</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fas fa-code"></i>
+                                <span>Visual Studio Code</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inteligencia Artificial -->
+                <div class="skills__content">
+                    <h3 class="skills__title">
+                        <i class="fas fa-brain"></i>
+                        Inteligencia Artificial
+                    </h3>
+                    <div class="skills__box">
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <i class="fas fa-network-wired"></i>
+                                <span>Neural Networks</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fas fa-robot"></i>
+                                <span>AnythingLLM</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fas fa-brain"></i>
+                                <span>Ollama</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Machine Learning</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fas fa-comments"></i>
+                                <span>Prompt Engineering</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bases de Datos -->
+                <div class="skills__content">
+                    <h3 class="skills__title">
+                        <i class="fas fa-database"></i>
+                        Bases de Datos
+                    </h3>
+                    <div class="skills__box">
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <i class="fas fa-database"></i>
+                                <span>MySQL</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fas fa-leaf"></i>
+                                <span>MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sistemas & Otros -->
+                <div class="skills__content">
+                    <h3 class="skills__title">
+                        <i class="fas fa-cogs"></i>
+                        Sistemas & Otros
+                    </h3>
+                    <div class="skills__box">
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <i class="fab fa-linux"></i>
+                                <span>FreeRTOS</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fas fa-microchip"></i>
+                                <span>Espressif</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fas fa-microchip"></i>
+                                <span>Arduino</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fas fa-table"></i>
+                                <span>Power BI</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fas fa-file-excel"></i>
+                                <span>Excel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Idiomas -->
+                <div class="skills__content">
+                    <h3 class="skills__title">
+                        <i class="fas fa-language"></i>
+                        Idiomas
+                    </h3>
+                    <div class="skills__box">
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <i class="fas fa-flag"></i>
+                                <span>Español - Nativo</span>
+                            </div>
+                            <div class="skills__data">
+                                <i class="fas fa-flag-usa"></i>
+                                <span>Inglés - Avanzado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Portfolio / Proyectos -->
+    <section class="portfolio section" id="portfolio">
+        <div class="container">
+            <h2 class="section__title">Proyectos Destacados</h2>
+            <span class="section__subtitle">Mi trabajo reciente</span>
+
+            <div class="portfolio__container">
+                <!-- Proyecto 1 -->
+                <div class="portfolio__card">
+                    <img src="assets/anythingllm_chat.png" alt="Proyecto 1" class="portfolio__img">
+                    <div class="portfolio__data">
+                        <h3 class="portfolio__title">Sistema de Automatización con IA</h3>
+                        <p class="portfolio__description">
+                            Implementación de soluciones de inteligencia artificial para automatizar procesos 
+                            internos utilizando Python, AnythingLLM y Ollama.
+                        </p>
+                        <div class="portfolio__tags">
+                            <span class="portfolio__tag">Python</span>
+                            <span class="portfolio__tag">AI</span>
+                            <span class="portfolio__tag">Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2 -->
+                <div class="portfolio__card">
+                    <img src="assets/bootstrap.png" alt="Proyecto 2" class="portfolio__img">
+                    <div class="portfolio__data">
+                        <h3 class="portfolio__title">Aplicación Web Responsiva</h3>
+                        <p class="portfolio__description">
+                            Desarrollo de interfaz de usuario moderna y responsiva con migración de framework 
+                            W3.CSS a Bootstrap para mejor escalabilidad.
+                        </p>
+                        <div class="portfolio__tags">
+                            <span class="portfolio__tag">HTML5</span>
+                            <span class="portfolio__tag">CSS3</span>
+                            <span class="portfolio__tag">Bootstrap</span>
+                            <span class="portfolio__tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3 -->
+                <div class="portfolio__card">
+                    <img src="assets/Academic_Tutor.png" alt="Proyecto 3" class="portfolio__img">
+                    <div class="portfolio__data">
+                        <h3 class="portfolio__title">Sistema de Monitoreo Académico</h3>
+                        <p class="portfolio__description">
+                            Plataforma web desarrollada con Flask para facilitar la búsqueda y consulta de 
+                            información académica con bases de datos relacionales.
+                        </p>
+                        <div class="portfolio__tags">
+                            <span class="portfolio__tag">Flask</span>
+                            <span class="portfolio__tag">Python</span>
+                            <span class="portfolio__tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 4 -->
+                <div class="portfolio__card">
+                    <img src="assets/girosafe.png" alt="Proyecto 4" class="portfolio__img">
+                    <div class="portfolio__data">
+                        <h3 class="portfolio__title">Sistemas Embebidos IoT</h3>
+                        <p class="portfolio__description">
+                            Desarrollo de soluciones con microcontroladores utilizando FreeRTOS, Espressif 
+                            y Arduino para aplicaciones IoT.
+                        </p>
+                        <div class="portfolio__tags">
+                            <span class="portfolio__tag">C/C++</span>
+                            <span class="portfolio__tag">FreeRTOS</span>
+                            <span class="portfolio__tag">IoT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 5 -->
+                <div class="portfolio__card">
+                    <img src="assets/power_bi.png" alt="Proyecto 5" class="portfolio__img">
+                    <div class="portfolio__data">
+                        <h3 class="portfolio__title">Análisis de Datos con Power BI</h3>
+                        <p class="portfolio__description">
+                            Herramientas de análisis de datos para identificar patrones y tendencias, 
+                            optimizando procesos internos.
+                        </p>
+                        <div class="portfolio__tags">
+                            <span class="portfolio__tag">Power BI</span>
+                            <span class="portfolio__tag">Excel</span>
+                            <span class="portfolio__tag">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 6 -->
+                <div class="portfolio__card">
+                    <img src="assets/Pot_evience.png" alt="Proyecto 6" class="portfolio__img">
+                    <div class="portfolio__data">
+                        <h3 class="portfolio__title">Aplicación Mobile con React Native</h3>
+                        <p class="portfolio__description">
+                            Desarrollo de aplicación móvil multiplataforma con React Native y Node.js 
+                            para gestión de datos en tiempo real.
+                        </p>
+                        <div class="portfolio__tags">
+                            <span class="portfolio__tag">React Native</span>
+                            <span class="portfolio__tag">Node.js</span>
+                            <span class="portfolio__tag">TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <h2 class="section__title">Contacto</h2>
+<span class="section__subtitle">Ponte en contacto conmigo</span>
+
+            <div class="contact__container">
+                <!-- Información de contacto -->
+                <div class="contact__info">
+                    <div class="contact__card">
+                        <i class="fas fa-envelope contact__card-icon"></i>
+                        <h3 class="contact__card-title">Email</h3>
+                        <span class="contact__card-data">jolinjps@hotmail.com</span>
+                        <a href="mailto:jolipips@hotmail.com" class="contact__button">
+                            Escríbeme <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="contact__card">
+                        <i class="fas fa-phone contact__card-icon"></i>
+                        <h3 class="contact__card-title">Teléfono</h3>
+                        <span class="contact__card-data">(+1) 951-347-6252</span>
+                        <a href="tel:+19513476252" class="contact__button">
+                            Llámame <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="contact__card">
+                        <i class="fas fa-map-marker-alt contact__card-icon"></i>
+                        <h3 class="contact__card-title">Ubicación</h3>
+                        <span class="contact__card-data">Mexicali, Baja California</span>
+                    </div>
+                </div>
+
+                <!-- Formulario de contacto -->
+                <form class="contact__form" id="contact-form">
+                    <div class="contact__form-div">
+                        <label class="contact__form-tag">Nombre</label>
+                        <input 
+                            type="text" 
+                            name="name" 
+                            class="contact__form-input" 
+                            placeholder="Tu nombre completo"
+                            required
+                        >
+                    </div>
+
+                    <div class="contact__form-div">
+                        <label class="contact__form-tag">Email</label>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            class="contact__form-input" 
+                            placeholder="tu.email@ejemplo.com"
+                            required
+                        >
+                    </div>
+
+                    <div class="contact__form-div contact__form-area">
+                        <label class="contact__form-tag">Mensaje</label>
+                        <textarea 
+                            name="message" 
+                            cols="30" 
+                            rows="10" 
+                            class="contact__form-input"
+                            placeholder="Escribe tu mensaje aquí..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="button button-primary">
+                        Enviar Mensaje
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+
+                    <p class="contact__message" id="contact-message"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Pie de página -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <h1 class="footer__title">Jordan Payta</h1>
+            <p class="footer__description">Full-Stack Developer & Computer Engineer</p>
+
+            <ul class="footer__list">
+                <li>
+                    <a href="#about" class="footer__link">Sobre Mí</a>
+                </li>
+                <li>
+                    <a href="#experience" class="footer__link">Experiencia</a>
+                </li>
+                <li>
+                    <a href="#portfolio" class="footer__link">Proyectos</a>
+                </li>
+            </ul>
+
+            <ul class="footer__social">
+                <a href="https://www.linkedin.com/in/jordan-payta" target="_blank" class="footer__social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/jordanpayta" target="_blank" class="footer__social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://twitter.com/jordanpayta" target="_blank" class="footer__social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="mailto:jolipips@hotmail.com" class="footer__social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </ul>
+
+            <span class="footer__copy">
+                &#169; 2025 Jordan Payta. Todos los derechos reservados.
+            </span>
+        </div>
+    </footer>
+
+    <!-- Botón Scroll Up -->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="fas fa-arrow-up scrollup__icon"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
