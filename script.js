@@ -339,13 +339,10 @@ counters.forEach(counter => {
     }
 });
 
-// ===== TEMA OSCURO/CLARO (Opcional - ya está en modo oscuro por defecto) =====
-// Si quieres agregar un botón para cambiar entre tema claro y oscuro,
-// puedes descomentar y personalizar el siguiente código:
-
-/*
+// ===== TEMA OSCURO/CLARO =====
 const themeButton = document.getElementById('theme-button');
 const darkTheme = 'dark-theme';
+const lightTheme = 'light-theme';
 const iconTheme = 'fa-sun';
 
 // Tema previamente seleccionado (si el usuario lo eligió)
@@ -353,26 +350,58 @@ const selectedTheme = localStorage.getItem('selected-theme');
 const selectedIcon = localStorage.getItem('selected-icon');
 
 // Obtener el tema actual
-const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light';
+const getCurrentTheme = () => document.body.classList.contains(lightTheme) ? 'light' : 'dark';
 const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'fa-moon' : 'fa-sun';
 
 // Validar si el usuario eligió previamente un tema
 if (selectedTheme) {
-    document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
-    themeButton.classList[selectedIcon === 'fa-moon' ? 'add' : 'remove'](iconTheme);
+    document.body.classList.remove(darkTheme, lightTheme);
+    document.body.classList.add(selectedTheme);
+    
+    if (selectedIcon === 'fa-sun') {
+        themeButton.classList.add(iconTheme);
+        themeButton.querySelector('i').classList.remove('fa-moon');
+        themeButton.querySelector('i').classList.add('fa-sun');
+    } else {
+        themeButton.classList.remove(iconTheme);
+        themeButton.querySelector('i').classList.remove('fa-sun');
+        themeButton.querySelector('i').classList.add('fa-moon');
+    }
+} else {
+    // Por defecto: tema oscuro
+    document.body.classList.add(darkTheme);
 }
 
 // Activar/desactivar el tema con el botón
 if (themeButton) {
     themeButton.addEventListener('click', () => {
+        // Toggle entre temas
         document.body.classList.toggle(darkTheme);
+        document.body.classList.toggle(lightTheme);
         themeButton.classList.toggle(iconTheme);
         
+        // Cambiar icono
+        const icon = themeButton.querySelector('i');
+        if (icon.classList.contains('fa-moon')) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+        
+        // Guardar preferencia
         localStorage.setItem('selected-theme', getCurrentTheme());
         localStorage.setItem('selected-icon', getCurrentIcon());
+        
+        // Feedback visual
+        themeButton.style.transform = 'scale(1.2) rotate(360deg)';
+        setTimeout(() => {
+            themeButton.style.transform = 'scale(1) rotate(0deg)';
+        }, 300);
     });
 }
-*/
+
 
 // ===== CURSOR PERSONALIZADO (Efecto futurista opcional) =====
 // Crear un cursor personalizado con efecto de seguimiento
@@ -576,6 +605,15 @@ const translations = {
         messageValidation: 'Por favor, ingresa un mensaje válido (mínimo 10 caracteres).',
         successMessage: '¡Mensaje enviado exitosamente! Te contactaré pronto.',
         errorMessage: 'Hubo un error al enviar el mensaje. Intenta nuevamente.',
+        
+        // Mapa
+        mapTitle: 'Encuéntrame',
+        mapSubtitle: 'Mi ubicación en el mapa',
+        mapViewButton: 'Ver en mapa',
+        mapLocation: 'Ubicación Actual',
+        mapTimezone: 'Zona Horaria',
+        mapCountry: 'Perú',
+        mapTimezoneValue: 'UTC-5 (PET)',
     },
     en: {
         // Navigation
@@ -640,6 +678,15 @@ const translations = {
         messageValidation: 'Please enter a valid message (minimum 10 characters).',
         successMessage: 'Message sent successfully! I\'ll get back to you soon.',
         errorMessage: 'There was an error sending the message. Please try again.',
+        
+        // Map
+        mapTitle: 'Find Me',
+        mapSubtitle: 'My location on the map',
+        mapViewButton: 'View on map',
+        mapLocation: 'Current Location',
+        mapTimezone: 'Timezone',
+        mapCountry: 'Peru',
+        mapTimezoneValue: 'UTC-5 (PET)',
     }
 };
 
@@ -770,3 +817,98 @@ if (translateBtn) {
 // Actualizar página al cargar
 updatePageLanguage();
 updateTranslateButton();
+
+// ===== INICIALIZACIÓN DE MAPBOX =====
+// Reemplaza con tu token de Mapbox
+mapboxgl.accessToken = 'pk.eyJ1IjoibHVmZmlubyIsImEiOiJjbWlpMjlpY2QwbmZ2M2dwdnB1djd5dW83In0.sqZdnXr1b7Fi3nVD_d8PYA';
+
+// Crear mapa cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    // Verificar que el elemento exista
+    const mapElement = document.getElementById('mapbox-map');
+    if (!mapElement) return;
+    
+    // Inicializar mapa - Mexicali, Baja California
+    const map = new mapboxgl.Map({
+        container: 'mapbox-map',
+        style: 'mapbox://styles/mapbox/dark-v11',
+        center: [-115.4734, 32.6275], // Coordenadas de Mexicali, Baja California
+        zoom: 12,
+        pitch: 20,
+        bearing: -20
+    });
+
+    // Agregar controles de navegación
+    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+    
+    // Agregar control de escala
+    map.addControl(new mapboxgl.ScaleControl({
+        maxWidth: 80,
+        unit: 'metric'
+    }), 'bottom-left');
+
+    // Marcador personalizado en tu ubicación
+    const marker = new mapboxgl.Marker({
+        color: '#3b82f6',
+        scale: 1.2
+    })
+    .setLngLat([-115.4734, 32.6275]) // Mexicali, Baja California
+    .setPopup(new mapboxgl.Popup({ offset: 25 })
+        .setHTML(`
+            <div class="map-popup">
+                <h4>Jordan Payta</h4>
+                <p>Full-Stack Developer & Computer Engineer</p>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #94a3b8;">Ubicación: Mexicali, Baja California 🇲🇽</p>
+            </div>
+        `))
+    .addTo(map);
+
+    // Hacer popup visible al hacer clic
+    marker.getElement().addEventListener('click', function() {
+        marker.togglePopup();
+    });
+
+    // Mostrar popup automáticamente después de que cargue el mapa
+    map.on('load', function() {
+        setTimeout(() => {
+            marker.togglePopup();
+        }, 1000);
+    });
+
+    // Animar entrada del mapa
+    map.on('load', function() {
+        // Efectos visuales adicionales
+        const layers = map.getStyle().layers;
+        
+        // Cambiar algunas capas de estilo
+        map.setPaintProperty('water', 'fill-color', '#06b6d4');
+    });
+
+    // Scroll suave al hacer clic en "Ver en mapa"
+    const scrollButtons = document.querySelectorAll('.contact__button--scroll');
+    scrollButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const mapSection = document.getElementById('map');
+            mapSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+});
+
+// Función para cambiar ubicación en el mapa
+function actualizarUbicacion(lat, lng, titulo) {
+    if (typeof mapboxgl === 'undefined') return;
+    
+    const map = new mapboxgl.Map({
+        container: 'mapbox-map',
+        style: 'mapbox://styles/mapbox/dark-v11',
+        center: [lng, lat],
+        zoom: 12
+    });
+
+    new mapboxgl.Marker()
+        .setLngLat([lng, lat])
+        .setPopup(new mapboxgl.Popup()
+            .setHTML(`<h4>${titulo}</h4>`))
+        .addTo(map);
+}

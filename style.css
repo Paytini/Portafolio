@@ -295,6 +295,12 @@ img {
     cursor: pointer;
 }
 
+.nav__buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 .nav__translate {
     display: flex;
     align-items: center;
@@ -325,14 +331,167 @@ img {
     font-size: 1rem;
 }
 
+/* Botón de Tema */
+.theme__button {
+    background: rgba(59, 130, 246, 0.1);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    color: var(--primary-color);
+    padding: 0.5rem 0.75rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.theme__button:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: var(--primary-color);
+    transform: rotate(20deg) scale(1.1);
+}
+
+.theme__button i {
+    transition: transform 0.5s ease;
+}
+
+.theme__button i.fa-sun {
+    color: #fbbf24;
+}
+
+.theme__button i.fa-moon {
+    color: #60a5fa;
+}
+
+/* Tema Claro */
+body.light-theme {
+    --primary-color: #2563eb;
+    --primary-dark-color: #1e40af;
+    --primary-light-color: #3b82f6;
+    --secondary-color: #06b6d4;
+    --accent-color: #8b5cf6;
+    --bg-dark: #f8fafc;
+    --bg-darker: #f1f5f9;
+    --card-bg: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+}
+
+body.light-theme .header {
+    background: rgba(248, 250, 252, 0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .section {
+    background: #f8fafc;
+}
+
+body.light-theme .home {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+body.light-theme .contact,
+body.light-theme .portfolio,
+body.light-theme .map {
+    background: #f1f5f9;
+}
+
+body.light-theme .about__box,
+body.light-theme .experience__card,
+body.light-theme .portfolio__card,
+body.light-theme .contact__card,
+body.light-theme .map__info-item {
+    background: rgba(226, 232, 240, 0.5);
+    border-color: rgba(37, 99, 235, 0.2);
+}
+
+body.light-theme .footer {
+    background: #0f172a;
+}
+
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5,
+body.light-theme h6,
+body.light-theme p {
+    color: var(--text-primary);
+}
+
+body.light-theme .section__title {
+    color: var(--text-primary);
+}
+
+body.light-theme .section__subtitle {
+    color: var(--text-secondary);
+}
+
+body.light-theme .nav__link {
+    color: var(--text-primary);
+}
+
+body.light-theme .nav__link:hover,
+body.light-theme .nav__link.active-link {
+    color: var(--primary-color);
+}
+
+body.light-theme .button {
+    background: var(--primary-color);
+    color: white;
+}
+
+body.light-theme .button:hover {
+    background: var(--primary-dark-color);
+}
+
+/* Transiciones suaves entre temas */
+body, body * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Responsive */
 @media screen and (max-width: 768px) {
-    .nav__translate {
-        margin-right: 1rem;
+    .nav__buttons {
+        gap: 0.5rem;
     }
-    
+
     .translate__button {
-        padding: 0.5rem 0.75rem;
+        padding: 0.4rem 0.8rem;
         font-size: 0.75rem;
+    }
+
+    .theme__button {
+        padding: 0.4rem;
+        min-width: 36px;
+        min-height: 36px;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .nav__buttons {
+        gap: 0.3rem;
+        margin-right: 0.5rem;
+    }
+
+    .translate__button {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.7rem;
+    }
+
+    .translate__button i {
+        font-size: 0.9rem;
+    }
+
+    .theme__button {
+        padding: 0.3rem;
+        min-width: 32px;
+        min-height: 32px;
+        font-size: 0.9rem;
     }
 }
 
@@ -1005,6 +1164,122 @@ img {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* ===== SECCIÓN MAPA ===== */
+.map {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding: 4rem 0;
+}
+
+.map__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.map__header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.map__box {
+    width: 100%;
+    height: 500px;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2);
+    border: 2px solid rgba(59, 130, 246, 0.1);
+    animation: slideUp 0.6s ease-out;
+}
+
+.map__info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.map__info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(59, 130, 246, 0.1);
+    border: 2px solid rgba(59, 130, 246, 0.2);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.map__info-item:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.map__info-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    min-width: 30px;
+}
+
+.map__info-item h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #e0e7ff;
+    margin-bottom: 0.25rem;
+}
+
+.map__info-item p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+/* Estilos para Mapbox GL */
+.mapboxgl-popup-content {
+    background: #1e293b;
+    color: #e0e7ff;
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.mapboxgl-popup-close-button {
+    color: #e0e7ff;
+}
+
+.mapboxgl-popup-close-button:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .map__box {
+        height: 350px;
+    }
+    
+    .map__info {
+        grid-template-columns: 1fr;
+    }
+    
+    .map {
+        padding: 2rem 0;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .map__box {
+        height: 250px;
+        border-radius: 1rem;
+    }
+    
+    .map__info-item {
+        padding: 1rem;
     }
 }
 

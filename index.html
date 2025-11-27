@@ -26,17 +26,21 @@
     
     <!-- Estilos CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Mapbox GL JS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js'></script>
+    
+    <!-- Mapbox Geocoder (para búsqueda de ubicaciones) -->
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl.min.js"></script>
 </head>
 <body>
     <!-- Header con navegación -->
     <header class="header" id="header">
         <nav class="nav container">
-            <!-- Logo -->
-            <div class="nav__logo">
-                <span class="logo-text">Jordan<span class="logo-accent">Payta</span></span>
-            </div>
+            <a href="#" class="nav__logo">Jordan Payta</a>
 
-            <!-- Menú de navegación -->
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
@@ -58,22 +62,28 @@
                         <a href="#contact" class="nav__link">Contacto</a>
                     </li>
                 </ul>
-                <div class="nav__close" id="nav-close">
-                    <i class="fas fa-times"></i>
-                </div>
+
+                <i class="fas fa-times nav__close" id="nav-close"></i>
             </div>
 
-            <!-- Toggle para móvil -->
+            <!-- Contenedor de botones (Traducción y Tema) -->
+            <div class="nav__buttons">
+                <!-- Botón de Traducción -->
+                <div class="nav__translate" id="nav-translate">
+                    <button class="translate__button" id="translate-btn" title="Cambiar idioma">
+                        <i class="fas fa-globe"></i>
+                        <span class="translate__text">EN</span>
+                    </button>
+                </div>
+
+                <!-- Botón de Tema -->
+                <button class="theme__button" id="theme-button" title="Cambiar tema">
+                    <i class="fas fa-moon theme__icon"></i>
+                </button>
+            </div>
+
             <div class="nav__toggle" id="nav-toggle">
                 <i class="fas fa-bars"></i>
-            </div>
-
-            <!-- Botón de traducción -->
-            <div class="nav__translate" id="nav-translate">
-                <button class="translate__button" id="translate-btn" title="Cambiar idioma">
-                    <i class="fas fa-globe"></i>
-                    <span class="translate__text">EN</span>
-                </button>
             </div>
         </nav>
     </header>
@@ -567,33 +577,39 @@
     <section class="contact section" id="contact">
         <div class="container">
             <h2 class="section__title">Contacto</h2>
-<span class="section__subtitle">Ponte en contacto conmigo</span>
+            <span class="section__subtitle">Ponte en contacto conmigo</span>
 
             <div class="contact__container">
                 <!-- Información de contacto -->
                 <div class="contact__info">
+                    <!-- Email -->
                     <div class="contact__card">
                         <i class="fas fa-envelope contact__card-icon"></i>
                         <h3 class="contact__card-title">Email</h3>
-                        <span class="contact__card-data">jolinjps@hotmail.com</span>
+                        <span class="contact__card-data">jolipips@hotmail.com</span>
                         <a href="mailto:jolipips@hotmail.com" class="contact__button">
                             Escríbeme <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
 
+                    <!-- Teléfono -->
                     <div class="contact__card">
                         <i class="fas fa-phone contact__card-icon"></i>
                         <h3 class="contact__card-title">Teléfono</h3>
-                        <span class="contact__card-data">(+1) 951-347-6252</span>
-                        <a href="tel:+19513476252" class="contact__button">
+                        <span class="contact__card-data">+1 9513476252</span>
+                        <a href="tel:+51900000000" class="contact__button">
                             Llámame <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
 
+                    <!-- Ubicación -->
                     <div class="contact__card">
                         <i class="fas fa-map-marker-alt contact__card-icon"></i>
                         <h3 class="contact__card-title">Ubicación</h3>
-                        <span class="contact__card-data">Mexicali, Baja California</span>
+                        <span class="contact__card-data">Baja California</span>
+                        <a href="#map" class="contact__button contact__button--scroll">
+                            Ver en mapa <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -601,45 +617,52 @@
                 <form class="contact__form" id="contact-form">
                     <div class="contact__form-div">
                         <label class="contact__form-tag">Nombre</label>
-                        <input 
-                            type="text" 
-                            name="name" 
-                            class="contact__form-input" 
-                            placeholder="Tu nombre completo"
-                            required
-                        >
+                        <input type="text" name="name" placeholder="Tu nombre completo" class="contact__form-input" required>
                     </div>
 
                     <div class="contact__form-div">
                         <label class="contact__form-tag">Email</label>
-                        <input 
-                            type="email" 
-                            name="email" 
-                            class="contact__form-input" 
-                            placeholder="tu.email@ejemplo.com"
-                            required
-                        >
+                        <input type="email" name="email" placeholder="tu.email@ejemplo.com" class="contact__form-input" required>
                     </div>
 
-                    <div class="contact__form-div contact__form-area">
+                    <div class="contact__form-div">
                         <label class="contact__form-tag">Mensaje</label>
-                        <textarea 
-                            name="message" 
-                            cols="30" 
-                            rows="10" 
-                            class="contact__form-input"
-                            placeholder="Escribe tu mensaje aquí..."
-                            required
-                        ></textarea>
+                        <textarea name="message" placeholder="Escribe tu mensaje aquí..." class="contact__form-input contact__form-textarea" required></textarea>
                     </div>
 
-                    <button type="submit" class="button button-primary">
-                        Enviar Mensaje
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
+                    <div id="contact-message" class="contact__message"></div>
 
-                    <p class="contact__message" id="contact-message"></p>
+                    <button type="submit" class="button button--flex">
+                        Enviar Mensaje <i class="fas fa-paper-plane"></i>
+                    </button>
                 </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección del Mapa -->
+    <section class="map section" id="map">
+        <div class="map__container">
+            <div class="map__header">
+                <h2 class="section__title">Encuéntrame</h2>
+                <span class="section__subtitle">Mi ubicación en el mapa</span>
+            </div>
+            <div id="mapbox-map" class="map__box"></div>
+            <div class="map__info">
+                <div class="map__info-item">
+                    <i class="fas fa-map-pin"></i>
+                    <div>
+                        <h4>Ubicación Actual</h4>
+                        <p>Mexicali, Baja California</p>
+                    </div>
+                </div>
+                <div class="map__info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Zona Horaria</h4>
+                        <p>UTC/GMT -8</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
