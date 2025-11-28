@@ -227,7 +227,7 @@ if (contactForm) {
                 // También enviar correo de confirmación al usuario
                 emailjs.send(
                     'service_9yqr0ob',
-                    'template_e307tzf',
+                    'template_wvizzt5',
                     {
                         to_email: email,
                         from_name: 'Jordan Payta',
@@ -612,8 +612,8 @@ const translations = {
         mapViewButton: 'Ver en mapa',
         mapLocation: 'Ubicación Actual',
         mapTimezone: 'Zona Horaria',
-        mapCountry: 'Perú',
-        mapTimezoneValue: 'UTC-5 (PET)',
+        mapCountry: 'Mexicali, Baja California 🇲🇽',
+        mapTimezoneValue: 'UTC-7 (MST)',
     },
     en: {
         // Navigation
@@ -685,8 +685,8 @@ const translations = {
         mapViewButton: 'View on map',
         mapLocation: 'Current Location',
         mapTimezone: 'Timezone',
-        mapCountry: 'Peru',
-        mapTimezoneValue: 'UTC-5 (PET)',
+        mapCountry: 'Mexicali, Baja California 🇲🇽',
+        mapTimezoneValue: 'UTC-7 (MST)',
     }
 };
 
