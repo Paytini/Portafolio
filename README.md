@@ -1,6 +1,6 @@
 # Portfolio Website - Jordan Jorge Payta Sarabia
 
-![Portfolio Preview](assets/profile.jpg)
+![Portfolio Preview](https://paytini.github.io/Portafolio/)
 
 ## 📋 Descripción
 
