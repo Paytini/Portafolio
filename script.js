@@ -232,7 +232,7 @@ if (contactForm) {
                         to_email: email,
                         from_name: 'Jordan Payta',
                         from_email: 'noreply@jordanpayta.com',
-                        message: `Hola ${name},\n\nGracias por contactarme. He recibido tu mensaje y te responderé lo antes posible.\n\nSaludos,\nJordan Payta`,
+                        message: `Hola ${name},\n\nGracias por contactarme. He recibido tu mensaje y te responderé lo antes posible.`,
                         reply_to: 'jolinjps@hotmail.com'
                     }
                 );
