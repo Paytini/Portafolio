@@ -123,6 +123,10 @@ function validateForm(formData) {
         errors.push(t('messageValidation'));
     }
 
+    if (document.querySelector('.h-captcha') && !formData.get('h-captcha-response')) {
+        errors.push(t('captchaValidation'));
+    }
+
     return errors;
 }
 
@@ -155,8 +159,11 @@ if (contactForm) {
 
         fetch('https://api.web3forms.com/submit', {
             method: 'POST',
-            headers: { Accept: 'application/json' },
-            body: formData
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify(Object.fromEntries(formData.entries()))
         })
             .then(response => response.json())
             .then(data => {

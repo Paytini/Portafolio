@@ -1034,6 +1034,10 @@ button {
     opacity: 0;
 }
 
+.h-captcha {
+    margin-bottom: var(--spacing-md);
+}
+
 .contact__message {
     margin-top: var(--spacing-md);
     text-align: center;

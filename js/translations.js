@@ -112,6 +112,7 @@ const translations = {
         nameValidation: 'Por favor, ingresa un nombre válido (mínimo 2 caracteres).',
         emailValidation: 'Por favor, ingresa un email válido.',
         messageValidation: 'Por favor, ingresa un mensaje válido (mínimo 10 caracteres).',
+        captchaValidation: 'Por favor, completa el captcha.',
         successMessage: '¡Mensaje enviado exitosamente! Te contactaré pronto.',
         errorMessage: 'Hubo un error al enviar el mensaje. Intenta nuevamente.',
     },
@@ -228,6 +229,7 @@ const translations = {
         nameValidation: 'Please enter a valid name (minimum 2 characters).',
         emailValidation: 'Please enter a valid email.',
         messageValidation: 'Please enter a valid message (minimum 10 characters).',
+        captchaValidation: 'Please complete the captcha.',
         successMessage: 'Message sent successfully! I\'ll get back to you soon.',
         errorMessage: 'There was an error sending the message. Please try again.',
     }
