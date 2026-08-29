@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ponte en contacto con Jordan Payta, Full-Stack Developer & Computer Engineer.">
+    <title>Contact - Jordan Payta</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="header-include"></div>
+
+    <section class="contact section page-section" id="contact">
+        <div class="container">
+            <span class="section__subtitle" data-i18n="contactSubtitle">Ponte en contacto conmigo</span>
+            <h2 class="section__title" data-i18n="contactTitle">Contacto</h2>
+
+            <div class="contact__container">
+                <div class="contact__info">
+                    <div class="contact__card">
+                        <i class="fas fa-envelope contact__card-icon"></i>
+                        <h3 class="contact__card-title" data-i18n="contactEmail">Email</h3>
+                        <span class="contact__card-data">jolinjips@hotmail.com</span>
+                        <a href="mailto:jolinjips@hotmail.com" class="contact__button">
+                            <span data-i18n="contactWriteMe">Escríbeme</span> <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="contact__card">
+                        <i class="fas fa-phone contact__card-icon"></i>
+                        <h3 class="contact__card-title" data-i18n="contactPhone">Teléfono</h3>
+                        <span class="contact__card-data">+1 951-347-6252</span>
+                        <a href="tel:+19513476252" class="contact__button">
+                            <span data-i18n="contactCallMe">Llámame</span> <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact__form" id="contact-form">
+                    <input type="hidden" name="access_key" value="dc420901-617f-4dc7-a743-186381f71e4c">
+                    <input type="hidden" name="subject" value="Nuevo mensaje desde el portafolio">
+                    <input type="checkbox" name="botcheck" class="contact__form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                    <div class="contact__form-div">
+                        <label class="contact__form-tag" data-i18n="contactFormName">Nombre</label>
+                        <input type="text" name="name" data-i18n-placeholder="contactFormPlaceholderName" placeholder="Tu nombre completo" class="contact__form-input" required>
+                    </div>
+
+                    <div class="contact__form-div">
+                        <label class="contact__form-tag" data-i18n="contactFormEmail">Email</label>
+                        <input type="email" name="email" data-i18n-placeholder="contactFormPlaceholderEmail" placeholder="tu.email@ejemplo.com" class="contact__form-input" required>
+                    </div>
+
+                    <div class="contact__form-div">
+                        <label class="contact__form-tag" data-i18n="contactFormMessage">Mensaje</label>
+                        <textarea name="message" data-i18n-placeholder="contactFormPlaceholderMessage" placeholder="Escribe tu mensaje aquí..." class="contact__form-input contact__form-textarea" required></textarea>
+                    </div>
+
+                    <div id="contact-message" class="contact__message"></div>
+
+                    <button type="submit" class="button button--flex">
+                        <span data-i18n="contactFormButton">Enviar Mensaje</span> <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-include"></div>
+
+    <script defer src="js/translations.js"></script>
+    <script defer src="js/script.js"></script>
+</body>
+</html>

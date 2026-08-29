@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stack tecnológico de Jordan Payta: lenguajes, frameworks frontend y backend, IA, bases de datos, cloud y certificaciones.">
+    <title>Technical Skills - Jordan Payta</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="header-include"></div>
+
+    <section class="skills section page-section" id="skills">
+        <div class="container">
+            <span class="section__subtitle" data-i18n="skillsSubtitle">Mi stack tecnológico</span>
+            <h2 class="section__title" data-i18n="skillsTitle">Habilidades</h2>
+
+            <div class="skills__layout">
+                <div class="skills__tablist" role="tablist" aria-label="Categorías de habilidades">
+                    <button type="button" class="skills__tab active-tab" role="tab" aria-selected="true" aria-controls="skills-panel-languages" id="skills-tab-languages" data-target="skills-panel-languages">
+                        <i class="fas fa-code" aria-hidden="true"></i>
+                        <span data-i18n="skillsCatLanguages">Lenguajes de Programación</span>
+                    </button>
+                    <button type="button" class="skills__tab" role="tab" aria-selected="false" aria-controls="skills-panel-frontend" id="skills-tab-frontend" data-target="skills-panel-frontend">
+                        <i class="fas fa-display" aria-hidden="true"></i>
+                        <span data-i18n="skillsCatFrontend">Frontend</span>
+                    </button>
+                    <button type="button" class="skills__tab" role="tab" aria-selected="false" aria-controls="skills-panel-backend" id="skills-tab-backend" data-target="skills-panel-backend">
+                        <i class="fas fa-server" aria-hidden="true"></i>
+                        <span data-i18n="skillsCatBackend">Backend</span>
+                    </button>
+                    <button type="button" class="skills__tab" role="tab" aria-selected="false" aria-controls="skills-panel-ai" id="skills-tab-ai" data-target="skills-panel-ai">
+                        <i class="fas fa-brain" aria-hidden="true"></i>
+                        <span data-i18n="skillsCatAI">Inteligencia Artificial</span>
+                    </button>
+                    <button type="button" class="skills__tab" role="tab" aria-selected="false" aria-controls="skills-panel-databases" id="skills-tab-databases" data-target="skills-panel-databases">
+                        <i class="fas fa-database" aria-hidden="true"></i>
+                        <span data-i18n="skillsCatDatabases">Bases de Datos</span>
+                    </button>
+                    <button type="button" class="skills__tab" role="tab" aria-selected="false" aria-controls="skills-panel-systems" id="skills-tab-systems" data-target="skills-panel-systems">
+                        <i class="fas fa-cogs" aria-hidden="true"></i>
+                        <span data-i18n="skillsCatSystems">Sistemas, Cloud & Otros</span>
+                    </button>
+                    <button type="button" class="skills__tab" role="tab" aria-selected="false" aria-controls="skills-panel-certs" id="skills-tab-certs" data-target="skills-panel-certs">
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
+                        <span data-i18n="skillsCatCerts">Certificaciones</span>
+                    </button>
+                    <button type="button" class="skills__tab" role="tab" aria-selected="false" aria-controls="skills-panel-languages-spoken" id="skills-tab-languages-spoken" data-target="skills-panel-languages-spoken">
+                        <i class="fas fa-language" aria-hidden="true"></i>
+                        <span data-i18n="skillsCatSpokenLanguages">Idiomas</span>
+                    </button>
+                </div>
+
+                <div class="skills__panels">
+                    <div class="skills__panel" role="tabpanel" id="skills-panel-languages" aria-labelledby="skills-tab-languages">
+                        <div class="skills__chips">
+                            <div class="skills__data"><i class="fas fa-code-branch"></i><span>TypeScript</span></div>
+                            <div class="skills__data"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                            <div class="skills__data"><i class="fab fa-python"></i><span>Python</span></div>
+                            <div class="skills__data"><i class="fab fa-java"></i><span>Java</span></div>
+                            <div class="skills__data"><i class="fas fa-code"></i><span>C/C++</span></div>
+                            <div class="skills__data"><i class="fab fa-php"></i><span>PHP</span></div>
+                            <div class="skills__data"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                            <div class="skills__data"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skills__panel" hidden role="tabpanel" id="skills-panel-frontend" aria-labelledby="skills-tab-frontend">
+                        <div class="skills__chips">
+                            <div class="skills__data"><i class="fab fa-react"></i><span>React</span></div>
+                            <div class="skills__data"><i class="fas fa-layer-group"></i><span>Next.js</span></div>
+                            <div class="skills__data"><i class="fab fa-react"></i><span>React Native</span></div>
+                            <div class="skills__data"><i class="fas fa-palette"></i><span>Material UI</span></div>
+                            <div class="skills__data"><i class="fas fa-shapes"></i><span>shadcn/ui</span></div>
+                            <div class="skills__data"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skills__panel" hidden role="tabpanel" id="skills-panel-backend" aria-labelledby="skills-tab-backend">
+                        <div class="skills__chips">
+                            <div class="skills__data"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+                            <div class="skills__data"><i class="fas fa-server"></i><span>Nest.js</span></div>
+                            <div class="skills__data"><i class="fas fa-bolt"></i><span>Express.js</span></div>
+                            <div class="skills__data"><i class="fas fa-plug"></i><span>REST APIs</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skills__panel" hidden role="tabpanel" id="skills-panel-ai" aria-labelledby="skills-tab-ai">
+                        <div class="skills__chips">
+                            <div class="skills__data"><i class="fas fa-chart-line"></i><span>Machine Learning</span></div>
+                            <div class="skills__data"><i class="fas fa-database"></i><span>RAG</span></div>
+                            <div class="skills__data"><i class="fas fa-robot"></i><span>Ollama</span></div>
+                            <div class="skills__data"><i class="fas fa-robot"></i><span>AnythingLLM</span></div>
+                            <div class="skills__data"><i class="fas fa-comments"></i><span>Prompt Engineering</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skills__panel" hidden role="tabpanel" id="skills-panel-databases" aria-labelledby="skills-tab-databases">
+                        <div class="skills__chips">
+                            <div class="skills__data"><i class="fas fa-database"></i><span>MySQL</span></div>
+                            <div class="skills__data"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
+                            <div class="skills__data"><i class="fas fa-leaf"></i><span>MongoDB</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skills__panel" hidden role="tabpanel" id="skills-panel-systems" aria-labelledby="skills-tab-systems">
+                        <div class="skills__chips">
+                            <div class="skills__data"><i class="fab fa-aws"></i><span>AWS S3</span></div>
+                            <div class="skills__data"><i class="fab fa-aws"></i><span>AWS Lambda</span></div>
+                            <div class="skills__data"><i class="fas fa-bolt"></i><span>Redis</span></div>
+                            <div class="skills__data"><i class="fab fa-git-alt"></i><span>Git</span></div>
+                            <div class="skills__data"><i class="fab fa-linux"></i><span>FreeRTOS</span></div>
+                            <div class="skills__data"><i class="fas fa-microchip"></i><span>Espressif</span></div>
+                            <div class="skills__data"><i class="fas fa-microchip"></i><span>Arduino</span></div>
+                            <div class="skills__data"><i class="fas fa-table"></i><span>Power BI</span></div>
+                            <div class="skills__data"><i class="fas fa-file-excel"></i><span>Excel</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skills__panel" hidden role="tabpanel" id="skills-panel-certs" aria-labelledby="skills-tab-certs">
+                        <div class="skills__chips">
+                            <div class="skills__data"><i class="fas fa-shield-halved"></i><span>IBM Cybersecurity Analyst</span></div>
+                            <div class="skills__data"><i class="fas fa-chart-line"></i><span>Google Data Analytics</span></div>
+                            <div class="skills__data"><i class="fas fa-gears"></i><span>Google IT Automation (Python)</span></div>
+                            <div class="skills__data"><i class="fas fa-headset"></i><span>Google IT Support</span></div>
+                        </div>
+                    </div>
+
+                    <div class="skills__panel" hidden role="tabpanel" id="skills-panel-languages-spoken" aria-labelledby="skills-tab-languages-spoken">
+                        <div class="skills__chips">
+                            <div class="skills__data"><i class="fas fa-flag"></i><span data-i18n="skillsSpanish">Español &mdash; Nativo</span></div>
+                            <div class="skills__data"><i class="fas fa-flag-usa"></i><span data-i18n="skillsEnglish">Inglés &mdash; Intermedio</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-include"></div>
+
+    <script defer src="js/translations.js"></script>
+    <script defer src="js/script.js"></script>
+</body>
+</html>

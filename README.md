@@ -1,185 +1,124 @@
 # Portfolio Website - Jordan Jorge Payta Sarabia
 
-![Portfolio Preview](https://paytini.github.io/Portafolio/)
-
 ## 📋 Descripción
 
-Portfolio profesional moderno y futurista para Jordan Jorge Payta Sarabia, Full-Stack Developer y Computer Engineer. Este sitio web presenta un diseño responsivo con una paleta de colores azul futurista, efectos glassmorphism, animaciones suaves y una experiencia de usuario premium.
+Portfolio profesional de Jordan Jorge Payta Sarabia, Full-Stack Developer y Computer Engineer. Sitio estático multi-página (sin build ni frameworks), con diseño claro, tipografía Space Grotesk/Inter/IBM Plex Mono, sistema de traducción ES/EN y componentes de header/footer compartidos.
 
 ## ✨ Características
 
-- **Diseño Moderno y Futurista**: Paleta de colores azul con gradientes y efectos glassmorphism
-- **Totalmente Responsivo**: Optimizado para móviles, tablets y computadoras de escritorio
-- **Animaciones Suaves**: Transiciones y efectos de scroll animados
-- **Formulario de Contacto**: Validación en tiempo real con JavaScript
-- **Navegación Intuitiva**: Menú de navegación con scroll suave y enlaces activos
-- **Cursor Personalizado**: Efecto de cursor futurista (solo en escritorio)
-- **SEO Optimizado**: Meta tags y estructura semántica HTML5
-- **Performance**: Lazy loading de imágenes y optimizaciones de rendimiento
-
-## 🎨 Paleta de Colores
-
-- **Primary**: `#3b82f6` (Azul)
-- **Primary Dark**: `#2563eb`
-- **Primary Light**: `#60a5fa`
-- **Secondary**: `#06b6d4` (Cyan)
-- **Accent**: `#8b5cf6` (Púrpura)
-- **Background Dark**: `#0f172a`
-- **Background Darker**: `#020617`
-- **Card Background**: `#1e293b`
+- **Multi-página real**: cada sección tiene su propia URL (`about.html`, `experience.html`, etc.), no scroll de una sola página
+- **Header y footer compartidos**: se cargan dinámicamente vía `fetch()` desde `components/` para no duplicar el marcado en cada página
+- **Traducción ES/EN**: todo el contenido visible se traduce mediante `js/translations.js`; el idioma por defecto es inglés y la preferencia del usuario se guarda en `localStorage`
+- **Habilidades en pestañas**: interfaz de pestañas accesible (patrón ARIA tabs) en vez de una cuadrícula de tarjetas
+- **Formulario de contacto funcional**: validación en tiempo real + envío real vía Web3Forms
+- **Rendimiento**: imágenes en WebP optimizadas, `loading="lazy"` en imágenes fuera de la vista inicial, Font Awesome cargado de forma no bloqueante
+- **Accesibilidad**: foco visible, `aria-label`/`title` en íconos sin texto, tamaños táctiles ≥44px, soporte a `prefers-reduced-motion`
 
 ## 📁 Estructura del Proyecto
 
 ```
-jordan-webDesigns/
+Portafolio/
 │
-├── index.html          # Estructura HTML principal
-├── style.css           # Estilos CSS con diseño futurista
-├── script.js           # JavaScript para interactividad
-├── README.md           # Documentación del proyecto
+├── index.html            # Inicio (hero)
+├── about.html             # Sobre Mí
+├── experience.html        # Experiencia + Educación
+├── skills.html             # Habilidades (interfaz de pestañas)
+├── portfolio.html          # Proyectos
+├── contact.html            # Contacto
 │
-└── assets/             # Recursos multimedia
-    ├── profile.jpg     # Foto de perfil (placeholder SVG)
-    ├── project1.jpg    # Proyecto 1: AI Automation
-    ├── project2.jpg    # Proyecto 2: Web Application
-    ├── project3.jpg    # Proyecto 3: Academic System
-    ├── project4.jpg    # Proyecto 4: IoT Embedded
-    ├── project5.jpg    # Proyecto 5: Data Analytics
-    └── project6.jpg    # Proyecto 6: Mobile App
+├── components/
+│   ├── header.html         # Header + navegación (compartido)
+│   └── footer.html         # Footer + botón scroll-up (compartido)
+│
+├── css/
+│   └── style.css
+│
+├── js/
+│   ├── script.js           # Interactividad, includes, formulario, traducciones
+│   └── translations.js     # Diccionario de textos ES/EN
+│
+├── assets/
+│   ├── images/              # Fotos y capturas de proyectos (.webp servidas al sitio)
+│   └── documents/           # CV y demás PDFs
+│
+├── docs/
+│   └── Jordan_Payta_CV.md   # CV en Markdown (fuente de referencia)
+│
+├── ui-design/
+│   └── ux-principles.es.md  # Principios de UX usados para el diseño
+│
+└── README.md
 ```
 
 ## 🚀 Cómo Usar
 
-### Opción 1: Abrir Directamente
-1. Navega a la carpeta del proyecto
-2. Haz doble clic en `index.html`
-3. El sitio se abrirá en tu navegador predeterminado
-
-### Opción 2: Servidor Local (Recomendado)
-Para una mejor experiencia, especialmente con las funcionalidades de JavaScript:
+Como el header/footer se cargan con `fetch()`, el sitio necesita un servidor HTTP local (no funciona abriendo `index.html` directamente con doble clic, por restricciones de CORS en `file://`).
 
 **Con Python:**
 ```bash
-# Python 3
-python -m http.server 8000
-
-# Python 2
-python -m SimpleHTTPServer 8000
+python3 -m http.server 8000
 ```
 
-**Con Node.js (http-server):**
+**Con Node.js:**
 ```bash
 npx http-server -p 8000
 ```
 
-**Con PHP:**
-```bash
-php -S localhost:8000
-```
+Luego abre `http://localhost:8000`.
 
-Luego abre tu navegador en `http://localhost:8000`
+## 📱 Páginas del Portfolio
 
-## 📱 Secciones del Portfolio
-
-1. **Home/Hero**: Presentación principal con nombre, título y llamados a la acción
-2. **Sobre Mí**: Biografía profesional y estadísticas
-3. **Experiencia**: Timeline de experiencia laboral con detalles de cada posición
-4. **Habilidades**: Stack tecnológico organizado por categorías
-5. **Proyectos**: Galería de 6 proyectos destacados con descripciones y tecnologías
-6. **Contacto**: Formulario de contacto funcional con validación
-7. **Footer**: Enlaces de navegación y redes sociales
+1. **Inicio** — Presentación principal con nombre, rol y llamados a la acción
+2. **Sobre Mí** — Biografía profesional, años de experiencia y botón de descarga del CV
+3. **Experiencia** — Timeline de experiencia laboral + formación académica
+4. **Habilidades** — Stack tecnológico por categorías (pestañas)
+5. **Proyectos** — 6 proyectos destacados con íconos de tecnologías usadas
+6. **Contacto** — Formulario funcional (Web3Forms) + datos de contacto
 
 ## 🛠️ Tecnologías Utilizadas
 
-- **HTML5**: Estructura semántica
-- **CSS3**: Estilos modernos con variables CSS, Flexbox y Grid
-- **JavaScript (Vanilla)**: Interactividad sin dependencias
-- **Font Awesome 6.4.0**: Iconos
-- **Google Fonts (Inter)**: Tipografía moderna
+- **HTML5 / CSS3 / JavaScript (Vanilla)** — sin frameworks ni build step
+- **Font Awesome 6.4.0** — íconos
+- **Google Fonts** — Space Grotesk, Inter, IBM Plex Mono
+- **Web3Forms** — envío del formulario de contacto (sin backend propio)
 
 ## 📝 Personalización
 
-### Reemplazar Imágenes
-Las imágenes actuales son placeholders SVG. Para usar tus propias imágenes:
-
-1. Reemplaza `assets/profile.jpg` con tu foto de perfil
-2. Reemplaza `assets/project1.jpg` a `project6.jpg` con capturas de tus proyectos
-3. Formatos recomendados: JPG, PNG o WebP
-4. Tamaños recomendados:
-   - Perfil: 400x400px
-   - Proyectos: 800x600px
-
-### Actualizar Información Personal
-Edita `index.html` para actualizar:
-- Nombre y título profesional
-- Biografía y descripción
-- Experiencia laboral
-- Habilidades y tecnologías
-- Proyectos y descripciones
-- Información de contacto
-- Enlaces de redes sociales
-
-### Modificar Colores
-Edita las variables CSS en `style.css` (líneas 1-50):
-```css
-:root {
-    --primary-color: #3b82f6;  /* Cambia el color principal */
-    --secondary-color: #06b6d4; /* Cambia el color secundario */
-    /* ... más variables */
-}
-```
+- **Contenido y textos**: editar el diccionario `js/translations.js` (claves `data-i18n` en cada página)
+- **Header/footer**: editar `components/header.html` / `components/footer.html` — el cambio se refleja en las 6 páginas automáticamente
+- **Colores y tipografía**: variables CSS al inicio de `css/style.css` (`:root`)
+- **Imágenes**: reemplazar los archivos en `assets/images/` (formato recomendado: WebP)
 
 ## ✅ Validación del Formulario
 
-El formulario de contacto incluye validación en tiempo real:
-- **Nombre**: Mínimo 2 caracteres
-- **Email**: Formato de email válido
-- **Mensaje**: Mínimo 10 caracteres
+- **Nombre**: mínimo 2 caracteres
+- **Email**: formato válido
+- **Mensaje**: mínimo 10 caracteres
 
-**Nota**: El formulario actualmente simula el envío. Para implementar envío real, necesitas:
-1. Un backend (PHP, Node.js, Python, etc.)
-2. Un servicio de email (SendGrid, Mailgun, etc.)
-3. O un servicio de formularios (Formspree, Netlify Forms, etc.)
+El envío se realiza vía [Web3Forms](https://web3forms.com) — requiere una access key gratuita configurada como campo oculto en `contact.html` (`<input type="hidden" name="access_key" ...>`).
 
 ## 🌐 Deployment
+
+Cualquier hosting de archivos estáticos funciona (las URLs usan extensión `.html`, sin necesitar reglas de reescritura del servidor):
 
 ### GitHub Pages
 1. Sube el proyecto a un repositorio de GitHub
 2. Ve a Settings > Pages
 3. Selecciona la rama `main` y carpeta `root`
-4. Tu sitio estará disponible en `https://tu-usuario.github.io/nombre-repo`
 
-### Netlify
-1. Arrastra la carpeta del proyecto a [Netlify Drop](https://app.netlify.com/drop)
-2. O conecta tu repositorio de GitHub para deployment automático
-
-### Vercel
-```bash
-npm i -g vercel
-cd jordan-webDesigns
-vercel
-```
+### Netlify / Vercel
+Arrastra la carpeta del proyecto a [Netlify Drop](https://app.netlify.com/drop), o conecta el repositorio para deployment automático.
 
 ## 📧 Contacto
 
-- **Email**: jolipips@hotmail.com
-- **Teléfono**: (+1) 951-347-6252
+- **Email**: jolinjips@hotmail.com
+- **Teléfono**: +1 951-347-6252
 - **Ubicación**: Mexicali, Baja California
 
 ## 📄 Licencia
 
 Este proyecto es de uso personal para Jordan Jorge Payta Sarabia.
 
-## 🎯 Próximas Mejoras
-
-- [ ] Integrar backend para formulario de contacto
-- [ ] Agregar modo claro/oscuro toggle
-- [ ] Implementar blog section
-- [ ] Agregar animaciones con GSAP
-- [ ] Integrar Google Analytics
-- [ ] Agregar certificaciones section
-- [ ] Implementar multi-idioma (ES/EN)
-
 ---
 
-**Desarrollado con ❤️ por Jordan Payta**
+**Desarrollado por Jordan Payta**
